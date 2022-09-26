@@ -1,7 +1,7 @@
 import axios from '../config/axios'
 
 export function CreateGuessSession(){
-    axios.get("authentication/guest_session/new")
+    axios.get("/authentication/guest_session/new")
     .then((res)=>{
         console.log(res)
     })
@@ -11,7 +11,7 @@ export function CreateGuessSession(){
 }
 
 export function CreateSession(){
-    axios.post("authentication/guest_session/new")
+    axios.post("/authentication/guest_session/new")
     .then((res)=>{
         console.log(res)
     })

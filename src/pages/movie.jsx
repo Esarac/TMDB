@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Movie() {
+  
   return (
     <div>movie</div>
   )
