@@ -27,7 +27,28 @@ export async function GetGenre(page, genreId){
 }
 
 export async function GetMovie(movieId){
-    const res = await axios.get('/movie/'+movieId+'?'+KEY+'&language=en-US')
+    const res = await axios.get(`/movie/${movieId}?${KEY}&language=en-US`)
     
+    return res.data;
+}
+
+export async function GetRateMovie(movieId, sessionId) {
+    const res = await axios.get(`/movie/${movieId}/account_states?${KEY}&session_id=${sessionId}`)
+
+    return res.data.rated;
+}
+
+export async function AddRateMovie(movieId, sessionId, rating){
+    const res = await axios.post(`/movie/${movieId}/rating?${KEY}&session_id=${sessionId}`,
+    {
+        value:rating
+    })
+
+    return res.data;
+}
+
+export async function DeleteRateMovie(movieId, sessionId){
+    const res = await axios.delete(`/movie/${movieId}/rating?${KEY}&session_id=${sessionId}`)
+
     return res.data;
 }

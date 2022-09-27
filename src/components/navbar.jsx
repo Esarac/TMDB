@@ -16,6 +16,12 @@ function Navbar() {
     })
   }
 
+  function logOut(){
+    window.sessionStorage.removeItem("request_token")
+    window.sessionStorage.removeItem("session_id")
+    window.open(window.location.href, '_self')
+  }
+
   useEffect(()=>{
     const sessionId = window.sessionStorage.getItem('session_id')
 
@@ -24,26 +30,38 @@ function Navbar() {
     
     const token = window.sessionStorage.getItem('request_token')
     
-    CreateSession(token)
-    .then((res)=>{
-      window.sessionStorage.setItem('session_id', res.session_id)
-      setSession(res.session_id);
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
+    if(token)
+      CreateSession(token)
+      .then((res)=>{
+        window.sessionStorage.setItem('session_id', res.session_id)
+        setSession(res.session_id);
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
   },[])
 
   const ActualSession = () => {
     if(session)
-      return (<div className='text-white'>{session}</div>)
-    return(<Button variant="outline-primary" onClick={(e)=>{logIn()}}>Log in</Button>)
+      return (
+        <div className='text-white'>
+          {session}
+          <Button className="mx-3" variant="outline-danger" onClick={(e)=>{logOut()}}>
+            Log out
+          </Button>
+        </div>
+      )
+    return(
+      <Button variant="outline-primary" onClick={(e)=>{logIn()}}>
+        Log in
+      </Button>
+    )
   }
 
   return (
     <RNavbar bg="dark" variant="dark" fixed="top">
       <Container>
-        <RNavbar.Brand href="#">
+        <RNavbar.Brand href={window.location.origin}>
           <img
             alt=""
             src={Logo}
