@@ -10,9 +10,7 @@ import MovieHeader from '../components/movieHeader';
 function Movie() {
   //States
   const [movie, setMovie] = useState();
-  const [movieAccordion, setMovieAccordion] = useState()
   const { id } = useParams()
-  let companies = []
 
   //Effects
   useEffect(() => {
@@ -21,20 +19,22 @@ function Movie() {
     })
   }, [])
 
-
-  return (
-    <Container>
-      <Row>
-        <Col>image</Col>
-        <Col xs={6}>
-          <Row className="gap-3">
-            <MovieHeader movie={movie}></MovieHeader>
-            <MovieAccordion movie={movie}></MovieAccordion>
-          </Row>
-        </Col>
-      </Row>
-    </Container>
-  )
+  if (movie)
+    return (
+      <Container>
+        <Row>
+          <Col >
+            <img className="w-100 p-3" src={"https://image.tmdb.org/t/p/original/" + movie.poster_path}></img>
+          </Col>
+          <Col >
+            <Row className="gap-3">
+              <MovieHeader movie={movie}></MovieHeader>
+              <MovieAccordion movie={movie}></MovieAccordion>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
+    )
 }
 
 export default Movie

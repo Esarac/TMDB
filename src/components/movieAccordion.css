@@ -1,0 +1,29 @@
+.accordion-button:not(.collapsed) {
+    color: inherit;
+    background-color: #212529;
+}
+.accordion-button.collapsed {
+    color: inherit;
+    background-color: #212529;
+    border-color: #323436;
+}
+
+.accordion-body {
+    background-color: #323436;
+}
+
+.accordion-item {
+    border: 1px solid rgba(35,65,100, .15)
+}
+
+.accordion-item:not(.collapsed) {
+    border-color: #323436;
+}
+
+.accordion-item.collapsed {
+    border-color:#323436;
+}
+
+.accordion-header {
+    border-color: #212529; 
+}
