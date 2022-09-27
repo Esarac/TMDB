@@ -6,6 +6,7 @@ import MovieHeader from '../components/movieHeader';
 import { Button, Col, Row, Container } from 'react-bootstrap';
 import { Rating } from '@mui/material';
 import { RemoveCircleOutline } from '@mui/icons-material';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 function Movie() {
   //States
@@ -95,7 +96,7 @@ function Movie() {
       {movie &&
       <Row>
         <Col >
-          <img className="w-100 p-3" src={"https://image.tmdb.org/t/p/original/" + movie.poster_path} alt='movie_poster'></img>
+          <img className="w-100 mh-100 p-3" src={"https://image.tmdb.org/t/p/original/" + movie.poster_path} alt='movie_poster'></img>
         </Col>
         <Col >
           <Row className="gap-3">
