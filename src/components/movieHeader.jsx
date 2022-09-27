@@ -17,7 +17,7 @@ function MovieHeader({ movie }) {
             <Container>
                 <Row>
                     <h1 className='text-white pt-3'><strong>{movie.title}</strong></h1>
-                    <p className='text-white'><small>{movie.release_date.split('-')[0] + ' | ' + movie.runtime + ' Minutes' + movieAge()}</small></p>
+                    <p className='text-white'><small>{movie.release_date.split('-')[0] + ' | ' + movie.runtime + ' Minutes | ' + (Math.round(movie.vote_average * 10) / 10) + ' '} <i className="bi bi-star"></i> {movieAge()} </small></p>
                 </Row>
             </Container>
         )

@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import MovieAccordion from '../components/movieAccordion';
 import MovieHeader from '../components/movieHeader';
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 function Movie() {
   //States
@@ -24,7 +25,7 @@ function Movie() {
       <Container>
         <Row>
           <Col >
-            <img className="w-100 p-3" src={"https://image.tmdb.org/t/p/original/" + movie.poster_path}></img>
+            <img className="w-100 mh-100 p-3" src={"https://image.tmdb.org/t/p/original/" + movie.poster_path}></img>
           </Col>
           <Col >
             <Row className="gap-3">
