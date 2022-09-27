@@ -25,3 +25,9 @@ export async function GetGenre(page, genreId){
 
     return res.data.results;
 }
+
+export async function GetMovie(movieId){
+    const res = await axios.get('/movie/'+movieId+'?'+KEY+'&language=en-US')
+    
+    return res.data;
+}

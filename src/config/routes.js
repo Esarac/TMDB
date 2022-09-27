@@ -8,7 +8,7 @@ const routes =(
     <Router>
         <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/:id" element={<Movie/>}/>
+            <Route path="/movie/:id" element={<Movie/>}/>
             <Route path="*" element={<NotFound/>}/>
         </Routes>
     </Router>
