@@ -9,8 +9,10 @@ function Home() {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
 
-  const [listType, setListType] = useState('popular')
-  const [genreId, setGenreId] = useState('')
+  const [listType, setListType] = useState('popular');
+  const [genreId, setGenreId] = useState('');
+
+  const [page, setPage] = useState(1);
 
   //Effects
   useEffect(()=>{
@@ -21,34 +23,40 @@ function Home() {
   },[])
 
   useEffect(()=>{
+    setPage(1)
     switch(listType){
       case 'popular':
-        GetPopular().then((res)=>{
+        GetPopular(page)
+        .then((res)=>{
           setMovies(res)
         })
         break;
       case 'top_rated':
-        GetTopRated().then((res)=>{
+        GetTopRated(page)
+        .then((res)=>{
           setMovies(res)
         })
         break;
       case 'now_playing':
-        GetNowPlaying().then((res)=>{
+        GetNowPlaying(page)
+        .then((res)=>{
           setMovies(res)
         })
         break;
       case 'genre':
-        GetGenre(genreId).then((res)=>{
+        GetGenre(page, genreId)
+        .then((res)=>{
           setMovies(res)
         })
         break;
       default:
-        GetPopular().then((res)=>{
+        GetPopular(page)
+        .then((res)=>{
           setMovies(res)
         })
         break;
     }
-  },[listType, genreId])
+  },[listType, genreId, page])
 
   //Components
   const movieGenreSelect = (
