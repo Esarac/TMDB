@@ -1,5 +1,5 @@
-import { Route, Routes} from "react-router";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes } from "react-router";
+import { HashRouter as Router } from "react-router-dom";
 import Home from "../pages/home";
 import Movie from "../pages/movie";
 import NotFound from "../pages/notFound";

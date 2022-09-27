@@ -61,7 +61,7 @@ function Navbar() {
   return (
     <RNavbar bg="dark" variant="dark" fixed="top">
       <Container>
-        <RNavbar.Brand href={window.location.origin}>
+        <RNavbar.Brand href={window.location.href}>
           <img
             alt=""
             src={Logo}
